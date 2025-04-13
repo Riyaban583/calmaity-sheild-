@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.container{
+    height: 100vh;
+    width: 100vh;
+    overflow-x: none; background-color: aliceblue;
+}
+.navcontainer{
+    width: 100vw;
+    background: linear-gradient(90deg, #003f5b, #2b4b7d, #5f5195, #98509d, #cc4c91, #f25375, #ff6f4e, #ff9913); 
+}
+#navlist{
+    margin-left: 15px;
+    margin-right: 15px;
+    list-style: none;
+    font-size: 2.8rem;
+    display: flex;
+justify-content: space-between;
+}
+#navlogo{
+    font-size: 2.8rem;
+ color: white;
+}
+a{
+    text-decoration: none;
+    color: blueviolet ;
+}
+.navitem{
+    display: flex;
+    gap: 10px;
+
+}
+.footerBox{
+    background: linear-gradient(90deg, #003f5b, #2b4b7d, #5f5195, #98509d, #cc4c91, #f25375, #ff6f4e, #ff9913); 
+    width: 100%;
+    text-align: center;
+     min-height: 40px ;
+}
+.footerBox p {
+    color: white;
+
+
+}
+.contentbox{
+    width: 70%;
+    margin: auto;
+    border: 1px solid black;
+    background-color: white;
+}
+#akshati{
+    color: #98509d;
+}
+#nabyy{
+    color: #98509d;
+}
+.rightbox{
+  border-radius: 20px;
+}
+.leftbox{
+    border-radius: 20px;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Alert Map | Calamity Shield</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .container {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .map-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .description {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .category {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer-left h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-left a, .footer-right a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-middle h3 {
+    margin-bottom: 10px;
+}
+
+.footer-middle input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+}
+
+.footer-middle button {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.hh{
+  justify-content: center;
+}
+.social-icons a {
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: black;
+    font-size: 16px;
+}
+
+.sitemap {
+    display: flex;
+    gap: 30px;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">Calamity Shield - Report the Disaster</div>
+    <div class="container">
+        <h2>Submit reports of disaster events.</h2>
+        <p>Our platform provides a simple and efficient way to report disasters. Whether you are witnessing an emergency or have experienced a disaster firsthand.
+        </p>
+    </div>
+    <div class="map-container">
+        <img src="sneeee.jpg" alt="Emergency Alert Map">
+    </div>
+    <div class="description">
+<p>
+    Disasters can strike at any time, causing significant damage to lives, property, and infrastructure. Quick reporting of disaster events is essential to ensure timely assistance, rescue operations, and resource allocation. Our Report a Disaster feature is designed to enable individuals to promptly report any disaster they witness or experience, helping authorities and emergency responders take immediate action.
+    Timely and accurate reporting of disaster events plays a crucial role in disaster management. When a disaster occurs, emergency services, relief organizations, and government agencies rely on real-time information to assess the severity of the situation and deploy appropriate resources.Early alerts help authorities dispatch rescue teams and medical aid promptly.
+    Quick action can prevent further damage by controlling fires, stabilizing structures, or evacuating people from danger zones.
+    Authorities can allocate resources like food, water, and medical supplies based on reported needs.
+    Disaster reports help warn nearby communities and prevent additional casualties.
+    Type of disaster (e.g., earthquake, flood, fire, landslide, accident, etc.).
+    Location of the disaster (specific address or GPS coordinates).
+    Severity and impact (damage to infrastructure, number of people affected, immediate needs).
+    If you have provided your contact details, you may receive updates on relief efforts and safety guidelines.
+    Types of Disasters You Can ReportOur platform supports reporting of various types of disasters.
+    Natural Disasters: Earthquakes, floods, hurricanes, wildfires, tsunamis, landslides, tornadoes, volcanic eruptions.
+    Human-Made Disasters: Industrial accidents, oil spills, radiation leaks, hazardous material incidents.
+    Public Emergencies: Building collapses, road accidents, train derailments, gas leaks.
+    Health Emergencies: Disease outbreaks, food or water contamination, mass poisoning.
+    
+</p>
+    <!-- </div>
+    <div class="categories">
+        <a href="#" class="category">EARTHQUAKES</a>
+        <a href="#" class="category">TROPICAL CYCLONES</a>
+        <a href="#" class="category">FLOODS</a>
+        <a href="#" class="category">VOLCANOES</a>
+        <a href="#" class="category">DROUGHTS</a>
+        <a href="#" class="category">FOREST FIRES</a>
+    </div> -->
+    <footer class="footer">
+        <div class="footer-left">
+            <h2 class="logo">CALAMITY <br> SHIELD</h2>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Accessibility Statement</a>
+            <p>2025 Disaster Management.</p>
+        </div>
+
+        <div class="footer-middle">
+            <h3>WANT TO STAY UPDATED?</h3>
+            <input type="text" placeholder="FULL NAME">
+            <input type="email" placeholder="E-MAIL">
+           
+           <div class="hh" >
+            <a href="signin.html" class="sign-in"> <button>SIGN UP</button></a></li>
+        </div>
+            <h3>FOLLOW US</h3>
+            <div class="social-icons">
+                <a href="#">🔗</a>
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">▶️</a>  
+            </div>
+        </div>
+        <div class="footer-right">
+            <h3>SITEMAP</h3>
+            <div class="sitemap">
+                <div>
+                    <a href="#">About</a>
+                    <a href="#">Learn</a>
+                    <a href="#">Plan, Exercise, Train</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Collaborate</a>
+                    <a href="#">Consulting</a>
+                    <a href="#">Media Center</a>
+                    <a href="#">Events</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>   
+</body>
+</html>

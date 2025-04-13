@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Alert Map | Calamity Shield</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        #last-updated {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .map-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .description {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .category {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer-left h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-left a, .footer-right a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-middle h3 {
+    margin-bottom: 10px;
+}
+
+.footer-middle input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+}
+
+.footer-middle button {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.hh{
+  justify-content: center;
+}
+.social-icons a {
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: black;
+    font-size: 16px;
+}
+
+.sitemap {
+    display: flex;
+    gap: 30px;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">Calamity Shield - Emergency Alert Map</div>
+    <div class="container">
+        <h2>Real-Time Disaster Alerts</h2>
+        <p>View the latest earthquake, flood, and storm alerts worldwide.</p>
+    </div>
+  
+    <select id="language-selector">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="zh">Chinese</option>
+        <option value="ja">Japanese</option>
+        <option value="hi">Hindi</option>
+        <option value="ar">Arabic</option>
+        <option value="pt">Portuguese</option>
+        <option value="ru">Russian</option>
+        <option value="it">Italian</option>
+        <option value="ko">Korean</option>
+        <option value="bn">Bengali</option>
+        <option value="vi">Vietnamese</option>
+        <option value="tr">Turkish</option>
+        <option value="th">Thai</option>
+        <option value="nl">Dutch</option>
+        <option value="sv">Swedish</option>
+        <option value="pl">Polish</option>
+    </select>
+
+    <div id="map"></div>
+    <p id="last-updated">Last Updated: Fetching data...</p>
+
+    <h3>Disaster Symbols Explanation:</h3>
+    <ul>
+        <li><img src="https://cdn-icons-png.flaticon.com/128/4823/4823086.png" width="20"> Earthquake - High impact seismic activity</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/128/3176/3176299.png" width="20"> Flood - Water-based disasters</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/128/1492/1492855.png" width="20"> Wildfire - Large uncontrolled fires</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/128/848/848485.png" width="20"> Typhoon - Severe storm-related disasters</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/128/565/565509.png" width="20"> Unknown - Other unspecified disasters</li>
+    </ul>
+
+    <div class="description">
+        <p>Map of disaster alerts in the past 4 days. European Union, 2025. Map produced by EC-JRC. The designations employed and the presentation of material on the map do not imply the expression of any opinion whatsoever on the part of the European Union concerning the legal status of any country, territory or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.</p>
+        <p>The blurred events in the list below are the past events before <strong>last 4 days</strong>.</p>
+        <p>For drought alerts, all the events listed in the homepage are ongoing events. In bold: i) new events; ii) events where a significant worsening has been detected (+ 0.5 GDACS score or increase in the Alert Level); iii) events where new information products are available (Global Drought Observatory Report).</p>
+        <p>For Forest Fires alerts, the events are all the ongoing events of class Orange or Red plus the Green alerts with burned area exceeding 10k ha and population within 5 km exceeding 10k.</p>
+    </div>
+    <div class="categories">
+        <a href="#" class="category">EARTHQUAKES</a>
+        <a href="#" class="category">TROPICAL CYCLONES</a>
+        <a href="#" class="category">FLOODS</a>
+        <a href="#" class="category">VOLCANOES</a>
+        <a href="#" class="category">DROUGHTS</a>
+        <a href="#" class="category">FOREST FIRES</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <h2 class="logo">CALAMITY <br> SHIELD</h2>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and Conditions</a>
+            <a href="#">Accessibility Statement</a>
+            <p>2025 Disaster Management.</p>
+        </div>
+
+        <div class="footer-middle">
+            <h3>WANT TO STAY UPDATED?</h3>
+            <input type="text" placeholder="FULL NAME">
+            <input type="email" placeholder="E-MAIL">
+           
+           <div class="hh" >
+            <a href="signin.html" class="sign-in"> <button>SIGN UP</button></a></li>
+        </div>
+            <h3>FOLLOW US</h3>
+            <div class="social-icons">
+                <a href="#">🔗</a>
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">▶️</a>
+                
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <h3>SITEMAP</h3>
+            <div class="sitemap">
+                <div>
+                    <a href="#">About</a>
+                    <a href="#">Learn</a>
+                    <a href="#">Plan, Exercise, Train</a>
+                    <a href="#">Technology</a>
+                    <a href="#">Collaborate</a>
+                    <a href="#">Consulting</a>
+                    <a href="#">Media Center</a>
+                    <a href="#">Events</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="map.js"></script>r
+</body>
+</html>

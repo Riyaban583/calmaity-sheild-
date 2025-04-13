@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+body {
+    background-image: url('fusing.jpg'); 
+    background-size: cover;  
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section */
+section {
+    padding: 50px;
+    text-align: center;
+    background: white;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 28px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1a252f;
+}
+
+p {
+    margin-top: 15px;
+}
+
+p a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #2c3e50;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
